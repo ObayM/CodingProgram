@@ -1,5 +1,8 @@
 import { Geist, Geist_Mono, Lobster_Two } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Background from "@/components/Background";
 
 const lobsterTwo = Lobster_Two({
   variable: "--font-lobster-two",
@@ -28,7 +31,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${lobsterTwo.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar />
+        <Background />
         {children}
+        <Footer />
       </body>
     </html>
   );

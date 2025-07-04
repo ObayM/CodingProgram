@@ -1,9 +1,11 @@
+'use client';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
+import NLink from 'next/link';
 import { FaCode, FaBars, FaTimes } from 'react-icons/fa';
 
-const FloatingNavbar = () => {
+const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -11,33 +13,30 @@ const FloatingNavbar = () => {
     { to: 'features', label: 'Features' },
     { to: 'curriculum', label: 'Curriculum' },
     { to: 'faq', label: 'FAQ' },
+    { to: '/leaderboard', label: 'Leaderboard' },
   ];
-
 
   const navContainerVariants = {
     hidden: { y: -100, opacity: 0, scale: 0.9 },
-    visible: { 
-      y: 0, 
-      opacity: 1, 
+    visible: {
+      y: 0,
+      opacity: 1,
       scale: 1,
-      transition: { type: 'spring', damping: 20, stiffness: 100, delay: 0.3 } 
+      transition: { type: 'spring', damping: 20, stiffness: 100, delay: 0.3 },
     },
   };
 
-  // For the mobile menu overlay
   const mobileMenuVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.3 } },
     exit: { opacity: 0, transition: { duration: 0.2 } },
   };
-  
-  // For the mobile menu links container (stagger effect)
+
   const mobileLinkContainerVariants = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
   };
 
-  // For individual mobile menu links
   const mobileLinkVariants = {
     hidden: { opacity: 0, y: -20, scale: 0.95 },
     visible: { opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 120 } },
@@ -46,10 +45,12 @@ const FloatingNavbar = () => {
   const toggleMenu = () => setMobileMenuOpen(prev => !prev);
   const closeMenu = () => setMobileMenuOpen(false);
 
+  // Common class for link styling to avoid repetition
+  const linkClassName =
+    'text-slate-300 hover:text-cyan-400 transition-colors duration-300 font-medium cursor-pointer relative group';
+
   return (
     <>
-      {/* --- Desktop & Mobile Navbar --- */}
-      {/* This outer div positions the floating navbar */}
       <div className="fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center px-4">
         <motion.nav
           variants={navContainerVariants}
@@ -59,33 +60,39 @@ const FloatingNavbar = () => {
         >
           <div className="flex items-center justify-between px-6 py-3">
             {/* Logo */}
-            <Link to="hero" smooth={true} duration={500} className="cursor-pointer">
-              <motion.div 
-                className="flex items-center gap-3"
-                whileHover={{ scale: 1.05 }}
-              >
+            <NLink href="/" className="cursor-pointer">
+              <motion.div className="flex items-center gap-3" whileHover={{ scale: 1.05 }}>
                 <FaCode className="text-3xl text-cyan-400" />
                 <span className="hidden sm:block text-xl font-bold text-slate-100">Young Devs</span>
               </motion.div>
-            </Link>
+            </NLink>
 
             {/* Desktop Links */}
             <div className="hidden md:flex items-center space-x-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  spy={true}
-                  smooth={true}
-                  offset={-100} // Adjust offset for floating nav
-                  duration={500}
-                  className="text-slate-300 hover:text-cyan-400 transition-colors duration-300 font-medium cursor-pointer relative group"
-                  activeClass="text-cyan-400 font-bold"
-                >
-                  {link.label}
-                  <span className="absolute bottom-[-6px] left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center" />
-                </Link>
-              ))}
+              {navLinks.map((link) =>
+                // *** FIX STARTS HERE: Removed <a> tag and passHref, moved className to NLink ***
+                link.to.startsWith('/') ? (
+                  <NLink key={link.to} href={link.to} className={linkClassName}>
+                    {link.label}
+                    <span className="absolute bottom-[-6px] left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center" />
+                  </NLink>
+                ) : (
+                  <ScrollLink
+                    key={link.to}
+                    to={link.to}
+                    spy={true}
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
+                    className={linkClassName}
+                    activeClass="text-cyan-400 font-bold"
+                  >
+                    {link.label}
+                    <span className="absolute bottom-[-6px] left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center" />
+                  </ScrollLink>
+                )
+                // *** FIX ENDS HERE ***
+              )}
             </div>
 
             {/* Desktop & Mobile CTA / Menu Button */}
@@ -103,7 +110,7 @@ const FloatingNavbar = () => {
               {/* Mobile Menu Button */}
               <div className="md:hidden">
                 <button onClick={toggleMenu} className="text-slate-100 z-50 p-2">
-                    {mobileMenuOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
+                  {mobileMenuOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
                 </button>
               </div>
             </div>
@@ -127,21 +134,32 @@ const FloatingNavbar = () => {
               initial="hidden"
               animate="visible"
               className="h-full flex flex-col items-center justify-center gap-8"
+              onClick={(e) => e.stopPropagation()} // Prevent clicks inside from closing menu
             >
               {navLinks.map((link) => (
                 <motion.div key={link.to} variants={mobileLinkVariants}>
-                  <Link
-                    to={link.to}
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={500}
-                    className="text-slate-200 hover:text-cyan-400 transition-colors duration-300 font-medium cursor-pointer text-2xl"
-                    activeClass="text-cyan-400 font-bold"
-                    onClick={closeMenu}
-                  >
-                    {link.label}
-                  </Link>
+                  {link.to.startsWith('/') ? (
+                    <NLink
+                      href={link.to}
+                      className="text-slate-200 hover:text-cyan-400 transition-colors duration-300 font-medium cursor-pointer text-2xl"
+                      onClick={closeMenu}
+                    >
+                      {link.label}
+                    </NLink>
+                  ) : (
+                    <ScrollLink
+                      to={link.to}
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={500}
+                      className="text-slate-200 hover:text-cyan-400 transition-colors duration-300 font-medium cursor-pointer text-2xl"
+                      activeClass="text-cyan-400 font-bold"
+                      onClick={closeMenu}
+                    >
+                      {link.label}
+                    </ScrollLink>
+                  )}
                 </motion.div>
               ))}
               <motion.div variants={mobileLinkVariants}>
@@ -162,4 +180,4 @@ const FloatingNavbar = () => {
   );
 };
 
-export default FloatingNavbar;
+export default Navbar;

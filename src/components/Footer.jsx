@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { KineticGlassPanel } from './KineticGlassPanel'; // Assuming this is in the same folder
 import { FaTwitter, FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
 // Data for footer links for easy management
@@ -32,7 +31,7 @@ const socialLinks = [
     { icon: <FaYoutube />, href: '#', name: 'YouTube' },
 ];
 
-export const ModernFooter = () => {
+const Footer = () => {
   return (
     <footer className="relative bg-black/40 text-white pt-20 overflow-hidden">
       {/* Animated Aurora Background */}
@@ -62,29 +61,7 @@ export const ModernFooter = () => {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Main Call to Action */}
-        <div className="mb-20">
-          <KineticGlassPanel tiltEnable={true} className="w-full">
-            <div className="flex flex-col md:flex-row items-center justify-between p-8 gap-6">
-              <div className="text-center md:text-left">
-                <h2 className="text-2xl md:text-3xl font-bold font-display text-white">
-                  Ready to Transform Your Future?
-                </h2>
-                <p className="text-muted-foreground mt-2 max-w-lg">
-                  Join the cohort and start your journey from curious learner to capable developer in just 6 weeks.
-                </p>
-              </div>
-              <motion.button 
-                className="bg-primary text-primary-foreground font-bold py-3 px-8 rounded-full shadow-primary-glow whitespace-nowrap"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-              >
-                Enroll Now
-              </motion.button>
-            </div>
-          </KineticGlassPanel>
-        </div>
+
 
         {/* Links Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 pb-16">
@@ -159,3 +136,5 @@ const FooterLink = ({ href, children }) => (
     </motion.a>
   </li>
 );
+
+export default Footer;
