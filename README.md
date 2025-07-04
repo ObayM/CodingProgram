@@ -44,6 +44,9 @@ npm install
 
 ### 3. Start the dev server
 
+Got some debugging help from AI (Gemini) and used it to help/guide me to create some components.
+Also used Gemini Code Assist code completions and Vscode
+
 ```bash
 npm run dev
 ```
