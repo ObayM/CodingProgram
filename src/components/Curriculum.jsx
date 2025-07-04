@@ -7,7 +7,6 @@ import {
   FaRocket, FaLightbulb, FaProjectDiagram, FaTools, FaBrain, FaTrophy
 } from 'react-icons/fa';
 
-// The same curriculum data
 const curriculum = [
     { week: 1, title: 'Code & Concepts', project: 'Mini Calculator', icon: <FaRocket/>, description: 'Lay the foundation. Learn essential syntax, variables, functions, and the core principles of programming logic.' },
     { week: 2, title: 'Logic & Loops', project: 'Guess the Number', icon: <FaLightbulb/>, description: 'Master control flow. Dive deep into conditional statements, loops, and building interactive, logic-driven applications.' },
@@ -17,7 +16,6 @@ const curriculum = [
     { week: 6, title: 'Capstone & Celebration', project: 'Final Project', icon: <FaTrophy/>, description: 'Bring it all together. Plan, build, and deploy a complete final project of your own design, showcasing your new skills.' },
 ];
 
-// Animation variants for the main container
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { 
@@ -26,7 +24,6 @@ const containerVariants = {
   },
 };
 
-// Animation variants for the children (TOC and Content Panel)
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -56,7 +53,6 @@ export const CurriculumChapterBook = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        {/* Left Panel: Table of Contents */}
         <motion.div variants={itemVariants} className="md:w-1/3">
           <div className="bg-black/20 backdrop-blur-sm p-4 rounded-xl border border-white/10">
             <h3 className="text-lg font-bold text-white/90 mb-4 px-2">Table of Contents</h3>
@@ -81,13 +77,11 @@ export const CurriculumChapterBook = () => {
           </div>
         </motion.div>
 
-        {/* Right Panel: Content Page */}
         <motion.div variants={itemVariants} className="md:w-2/3">
-          {/* AnimatePresence handles the transition between different content items */}
           <AnimatePresence mode="wait">
             {activeItem && (
               <motion.div
-                key={activeItem.week} // The key is crucial for AnimatePresence
+                key={activeItem.week}
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}

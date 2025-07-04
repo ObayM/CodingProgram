@@ -16,6 +16,7 @@ export const useSmoothScroll = () => {
     }, []);
 };
 
+
 export const AnimatedTitle = ({ title }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.5 });
@@ -29,7 +30,7 @@ export const AnimatedTitle = ({ title }) => {
   };
   return (
     <motion.h1 ref={ref} aria-label={title} initial="hidden" animate={isInView ? "visible" : "hidden"} variants={titleContainerVariants}
-      className="relative text-6xl sm:text-7xl md:text-8xl font-black font-display bg-clip-text bg-gradient-to-b from-gray-50 to-gray-400 tracking-tighter shimmer-effect rounded-2xl p-1">
+      className="relative text-4xl sm:text-7xl md:text-8xl font-black font-display bg-clip-text bg-gradient-to-b from-gray-50 to-gray-400 tracking-tighter shimmer-effect rounded-2xl p-1">
       {title.split("").map((char, i) => (
         <motion.span key={i} variants={letterVariants} className="inline-block">
           {char === " " ? "\u00A0" : char}

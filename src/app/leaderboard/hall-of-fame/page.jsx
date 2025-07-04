@@ -1,23 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react'; 
 import Image from 'next/image';
 import { motion } from "framer-motion";
 import { FaTrophy, FaGithub } from 'react-icons/fa';
-
 import { KineticGlassPanel } from '@/components/KineticGlassPanel';
-import { AnimatedTitle, AnimatedSubtitle, useSmoothScroll } from '@/components/shared'; 
+import { AnimatedTitle, AnimatedSubtitle, useSmoothScroll } from '@/components/shared';
 
-const leaderboardData = [
-  { rank: 1, name: 'Alia Varma', avatar: 'https://avatar.vercel.sh/alia.png', project: 'QuantumLeap AI', score: 9850, github: '#' },
-  { rank: 2, name: 'Ben Carter', avatar: 'https://avatar.vercel.sh/ben.png', project: 'Project Nebula', score: 9720, github: '#' },
-  { rank: 3, name: 'Sophia Chen', avatar: 'https://avatar.vercel.sh/sophia.png', project: 'EchoStream', score: 9680, github: '#' },
-  { rank: 4, name: 'Leo Rodriguez', avatar: 'https://avatar.vercel.sh/leo.png', project: 'DataWeave Analytics', score: 9540, github: '#' },
-  { rank: 5, name: 'Mia Kim', avatar: 'https://avatar.vercel.sh/mia.png', project: 'Aether Platform', score: 9490, github: '#' },
-  { rank: 6, name: 'David Singh', avatar: 'https://avatar.vercel.sh/david.png', project: 'BioSynth Modeler', score: 9310, github: '#' },
-  { rank: 7, name: 'Chloe Nguyen', avatar: 'https://avatar.vercel.sh/chloe.png', project: 'SecurePass Protocol', score: 9250, github: '#' },
-  { rank: 8, name: 'Ethan Wright', avatar: 'https://avatar.vercel.sh/ethan.png', project: 'Momentum OS', score: 9180, github: '#' },
-];
 
 const getRankColor = (rank) => {
     if (rank === 1) return 'text-yellow-400 glow-gold';
@@ -56,6 +45,29 @@ const LeaderboardRow = ({ entry, index }) => {
 export default function HallOfFamePage() {
     useSmoothScroll();
 
+    const [leaderboardData, setLeaderboardData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchLeaderboard = async () => {
+            try {
+                const response = await fetch('/api/leaderboard');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch leaderboard data');
+                }
+                const data = await response.json();
+                setLeaderboardData(data);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchLeaderboard();
+    }, []);
+
     const containerVariants = {
         hidden: {},
         visible: { transition: { staggerChildren: 0.07 } },
@@ -63,9 +75,7 @@ export default function HallOfFamePage() {
 
     return (
         <div className="min-h-screen overflow-x-hidden antialiased text-gray-200">
-
             <main className="container mx-auto px-4 py-24 sm:py-32 space-y-24 sm:space-y-32 relative z-10">
-
                 <section className="text-center flex flex-col items-center">
                     <AnimatedTitle title="Hall of Fame" />
                     <AnimatedSubtitle text="Celebrating the exceptional projects and problem-solvers from our past cohorts. This is where legends are forged." />
@@ -79,15 +89,19 @@ export default function HallOfFamePage() {
                             <div className="hidden sm:block sm:col-span-4">Capstone Project</div>
                             <div className="col-span-4 sm:col-span-2 text-right">Score</div>
                         </div>
-                        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-                            {leaderboardData.map((entry, index) => (
-                                <LeaderboardRow key={entry.rank} entry={entry} index={index} />
-                            ))}
-                        </motion.div>
+                        
+                        {isLoading && <div className="text-center py-8 text-gray-400">Loading Hall of Fame...</div>}
+                        {error && <div className="text-center py-8 text-red-500">Error: {error}</div>}
+                        {!isLoading && !error && (
+                             <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
+                                {leaderboardData.map((entry, index) => (
+                                    <LeaderboardRow key={entry.rank} entry={entry} index={index} />
+                                ))}
+                            </motion.div>
+                        )}
                     </KineticGlassPanel>
                 </motion.div>
             </main>
         </div>
     );
 }
-

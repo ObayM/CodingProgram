@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { FaTwitter, FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
-// Data for footer links for easy management
 const footerLinks = {
   platform: [
     { name: 'Curriculum', href: '#curriculum' },

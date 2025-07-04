@@ -42,16 +42,13 @@ const titleContainerVariants = {
   }
 };
 
-// --- UPDATED ANIMATED TITLE COMPONENT ---
 const AnimatedTitle = ({ title, highlightedWords = [] }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.5 });
 
-  // Create a regex from the words to highlight to split the title
   const regex = new RegExp(`(${highlightedWords.join('|')})`, 'g');
   const parts = title.split(regex).filter(Boolean);
 
-  // Create a flat array of character objects with a highlight flag
   const characters = parts.reduce((acc, part) => {
     const isHighlighted = highlightedWords.includes(part);
     const chars = part.split('').map(char => ({ char, isHighlighted }));
@@ -66,7 +63,7 @@ const AnimatedTitle = ({ title, highlightedWords = [] }) => {
       animate={isInView ? "visible" : "hidden"}
       variants={titleContainerVariants}
       className="
-        relative text-6xl sm:text-7xl md:text-8xl font-black font-display
+        relative text-4xl sm:text-7xl md:text-8xl font-black font-display
         bg-clip-text bg-gradient-to-b from-gray-50 to-gray-400
         tracking-tighter shimmer-effect rounded-2xl p-1
       "
@@ -77,8 +74,7 @@ const AnimatedTitle = ({ title, highlightedWords = [] }) => {
           variants={letterVariants}
           className={`inline-block ${
             isHighlighted 
-            // This class will override the gradient for the highlighted word
-            ? 'text-primary drop-shadow-[0_0_8px_theme(colors.primary)] font-lobster' 
+            ? 'text-primary drop-shadow-[0_0_8px_theme(colors.primary)]' 
             : ''
           }`}
         >
@@ -89,8 +85,6 @@ const AnimatedTitle = ({ title, highlightedWords = [] }) => {
   );
 };
 
-
-// --- ANIMATED SUBTITLE COMPONENT ---
 const wordVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { 
@@ -190,7 +184,7 @@ export default function HomePage() {
                         <div className="text-center md:text-left">
                             <h2 className="text-3xl sm:text-4xl font-bold font-display text-foreground mb-3">More Than a Bootcamp. A Foundry.</h2>
                             <p className="text-gray-300 leading-relaxed text-lg">
-                              Young Devs is an elite 6-week accelerator designed to forge the next generation of tech innovators. We don't just teach you to code—we cultivate the mindset, skills, and confidence to solve any complex problem.
+                              Young Devs is an elite 6-week accelerator designed to forge the next generation of tech innovators. We don&apos;t just teach you to code—we cultivate the mindset, skills, and confidence to solve any complex problem.
                             </p>
                         </div>
                     </div>

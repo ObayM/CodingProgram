@@ -45,7 +45,6 @@ const Navbar = () => {
   const toggleMenu = () => setMobileMenuOpen(prev => !prev);
   const closeMenu = () => setMobileMenuOpen(false);
 
-  // Common class for link styling to avoid repetition
   const linkClassName =
     'text-slate-300 hover:text-cyan-400 transition-colors duration-300 font-medium cursor-pointer relative group';
 
@@ -59,7 +58,6 @@ const Navbar = () => {
           className="w-full max-w-6xl rounded-full bg-slate-900/60 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/20"
         >
           <div className="flex items-center justify-between px-6 py-3">
-            {/* Logo */}
             <NLink href="/" className="cursor-pointer">
               <motion.div className="flex items-center gap-3" whileHover={{ scale: 1.05 }}>
                 <FaCode className="text-3xl text-cyan-400" />
@@ -67,10 +65,8 @@ const Navbar = () => {
               </motion.div>
             </NLink>
 
-            {/* Desktop Links */}
             <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) =>
-                // *** FIX STARTS HERE: Removed <a> tag and passHref, moved className to NLink ***
                 link.to.startsWith('/') ? (
                   <NLink key={link.to} href={link.to} className={linkClassName}>
                     {link.label}
@@ -91,11 +87,9 @@ const Navbar = () => {
                     <span className="absolute bottom-[-6px] left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center" />
                   </ScrollLink>
                 )
-                // *** FIX ENDS HERE ***
               )}
             </div>
 
-            {/* Desktop & Mobile CTA / Menu Button */}
             <div className="flex items-center gap-4">
               <div className="hidden md:block">
                 <motion.button
@@ -107,7 +101,6 @@ const Navbar = () => {
                 </motion.button>
               </div>
 
-              {/* Mobile Menu Button */}
               <div className="md:hidden">
                 <button onClick={toggleMenu} className="text-slate-100 z-50 p-2">
                   {mobileMenuOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
@@ -118,7 +111,6 @@ const Navbar = () => {
         </motion.nav>
       </div>
 
-      {/* --- Mobile Menu Overlay --- */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -127,14 +119,14 @@ const Navbar = () => {
             animate="visible"
             exit="exit"
             className="md:hidden fixed inset-0 z-40 bg-slate-900/90 backdrop-blur-xl"
-            onClick={closeMenu} // Close menu when clicking the overlay
+            onClick={closeMenu}
           >
             <motion.div
               variants={mobileLinkContainerVariants}
               initial="hidden"
               animate="visible"
               className="h-full flex flex-col items-center justify-center gap-8"
-              onClick={(e) => e.stopPropagation()} // Prevent clicks inside from closing menu
+              onClick={(e) => e.stopPropagation()}
             >
               {navLinks.map((link) => (
                 <motion.div key={link.to} variants={mobileLinkVariants}>
