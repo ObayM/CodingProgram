@@ -46,7 +46,7 @@ export const CurriculumChapterBook = () => {
         transition={{ duration: 0.8 }}
         className="text-4xl sm:text-5xl font-bold font-display text-center mb-16 tracking-wide"
       >
-        The 6-Week Transformation Arc
+        The 6-Week Journey
       </motion.h2>
 
       <motion.div 

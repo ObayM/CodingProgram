@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef } from 'react';
 import { motion, useInView } from "framer-motion";
 import Lenis from 'lenis';
 import { FaGraduationCap, FaCheckCircle } from 'react-icons/fa';
@@ -28,17 +28,19 @@ const useSmoothScroll = () => {
     }, []);
 };
 
+// --- REWORKED ANIMATED TITLE ---
 const letterVariants = {
-  hidden: { opacity: 0, y: 50, filter: "blur(8px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+  hidden: { opacity: 0, y: 50, rotateX: -90, filter: "blur(8px)" },
+  visible: { opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" },
 };
 
-const containerVariants = {
+const titleContainerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.05,
-      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.04,
+      delayChildren: 0.2,
+      ease: [0.33, 1, 0.68, 1],
       duration: 0.8
     }
   }
@@ -54,11 +56,11 @@ const AnimatedTitle = ({ title }) => {
       aria-label={title}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      variants={containerVariants}
+      variants={titleContainerVariants}
       className="
-        text-6xl sm:text-8xl md:text-9xl font-black font-display
+        relative text-6xl sm:text-7xl md:text-8xl font-black font-display
         bg-clip-text bg-gradient-to-b from-gray-50 to-gray-400
-        tracking-tighter
+        tracking-tighter shimmer-effect rounded-2xl p-1
       "
     >
       {title.split("").map((char, i) => (
@@ -73,6 +75,53 @@ const AnimatedTitle = ({ title }) => {
     </motion.h1>
   );
 };
+
+// --- NEW ANIMATED SUBTITLE COMPONENT ---
+const wordVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { type: 'spring', stiffness: 100, damping: 20 } 
+  },
+};
+
+const subtitleContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.8, // Start after the title animation
+    },
+  },
+};
+
+const AnimatedSubtitle = ({ text }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.5 });
+    const words = text.split(" ");
+  
+    return (
+      <motion.p
+        ref={ref}
+        variants={subtitleContainerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className="mt-6 text-lg sm:text-xl max-w-3xl text-muted-foreground"
+      >
+        {words.map((word, index) => (
+          <motion.span
+            key={index}
+            variants={wordVariants}
+            className="inline-block mr-[0.4em]" // Use margin for proper spacing
+          >
+            {word}
+          </motion.span>
+        ))}
+      </motion.p>
+    );
+};
+
 
 const IconListItem = ({ children }) => (
     <motion.li 
@@ -92,27 +141,66 @@ export default function HomePage() {
     useSmoothScroll();
 
     return (
-        <div className="min-h-screen  overflow-x-hidden antialiased">
+        <div className="min-h-screen overflow-x-hidden antialiased">
+            {/* 
+              This style block adds the shimmer effect for the headline.
+              For best practice, you might want to move this into your globals.css file.
+            */}
+            <style jsx global>{`
+              .shimmer-effect {
+                position: relative;
+                overflow: hidden;
+              }
+              .shimmer-effect::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                transform: translateX(-100%);
+                background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0));
+                animation: shimmer 4s infinite;
+                animation-delay: 2s; /* Start shimmer after initial animation */
+              }
+              @keyframes shimmer {
+                100% {
+                  transform: translateX(100%);
+                }
+              }
+            `}</style>
+
             <CelestialBackground />
-            <div className="absolute inset-0 " />
+            {/* Added a dark overlay for better text readability */}
+            {/* <div className="absolute inset-0 bg-black/30 z-10" /> */}
             
             <main className="container mx-auto px-4 py-24 sm:py-32 space-y-36 sm:space-y-48 relative z-10">
               <Navbar />
-                <section className="text-center flex flex-col items-center min-h-[80vh] justify-center">
-                    <AnimatedTitle title="Young Devs" />
-                    <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
-                        className="mt-6 text-lg sm:text-xl max-w-2xl text-muted-foreground"
+                
+                {/* --- REWORKED HERO SECTION --- */}
+                <section className="text-center flex flex-col items-center min-h-[60vh] justify-center">
+                    
+                    <AnimatedTitle title="Forge Your Legacy in Code" />
+                    
+                    <AnimatedSubtitle 
+                      text="A 6-week odyssey for ambitious young minds. We don't just teach. We transform you into a creator, a problem-solver, an innovator." 
+                    />
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 2.2, ease: [0.22, 1, 0.36, 1] }} // Delay after subtitle
+                      className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6"
                     >
-                        From Raw Potential to Elite Technologist. An Accelerator Forging the Next Generation of Innovators.
-                    </motion.p>
-                    <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 1.2, ease: [0, 0.55, 0.45, 1] }}>
-                      <button className="mt-12 group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 bg-primary/90 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background hover:shadow-primary-glow">
-                        <span className="transition-transform duration-300 group-hover:scale-105">
-                            Begin Your Genesis
-                        </span>
+                      {/* APPLY NOW Button (Primary) */}
+                      <button className="group relative inline-flex h-12 w-48 items-center justify-center overflow-hidden rounded-full bg-primary px-8 py-3 text-lg font-bold text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background hover:scale-105 hover:shadow-lg hover:shadow-primary/40">
+                          <span className="z-10">Apply Now</span>
+                          <div className="absolute inset-0 h-full w-full -translate-x-full transform bg-white/20 transition-transform duration-500 ease-in-out group-hover:translate-x-0"></div>
+                      </button>
+
+                      {/* KNOW MORE Button (Secondary) */}
+                      <button className="group relative inline-flex h-12 w-48 items-center justify-center overflow-hidden rounded-full border border-gray-400 bg-transparent px-8 py-3 text-lg font-bold text-gray-200 transition-all duration-300 hover:border-white hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-background">
+                          Know More
                       </button>
                     </motion.div>
                 </section>
@@ -164,7 +252,7 @@ export default function HomePage() {
 
 
             </main>
-                            <ModernFooter />
+            <ModernFooter />
 
         </div>
     );

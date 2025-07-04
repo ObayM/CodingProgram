@@ -5,7 +5,6 @@ import { motion, useInView } from 'framer-motion';
 import { clsx } from 'clsx';
 import ParallaxTilt from 'react-parallax-tilt';
 
-
 export const KineticGlassPanel = ({ children, className, tiltEnable = true }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
@@ -45,7 +44,7 @@ export const KineticGlassPanel = ({ children, className, tiltEnable = true }) =>
       tiltMaxAngleY={4}
       glareEnable={true}
       glareMaxOpacity={0.1}
-      glareColor="#000"
+      glareColor="rgba(0, 0, 0, 0)"
       glarePosition="all"
       scale={1.02}
       transitionSpeed={3000}
