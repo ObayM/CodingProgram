@@ -10,12 +10,10 @@ const FloatingNavbar = () => {
     { to: 'overview', label: 'Overview' },
     { to: 'features', label: 'Features' },
     { to: 'curriculum', label: 'Curriculum' },
-    { to: 'contact', label: 'Contact' },
+    { to: 'faq', label: 'FAQ' },
   ];
 
-  // --- Animation Variants ---
 
-  // For the main floating navbar container
   const navContainerVariants = {
     hidden: { y: -100, opacity: 0, scale: 0.9 },
     visible: { 

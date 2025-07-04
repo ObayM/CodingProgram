@@ -4,17 +4,15 @@ import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-// This is the final, polished component.
 function DarkLiquidBackground() {
   const material = useRef(null);
 
   const shaderArgs = useMemo(() => ({
     uniforms: {
       uTime: { value: 0 },
-uColor1: { value: new THREE.Color('#1a3d7c') },
-uColor2: { value: new THREE.Color('#2c4a63') },
-uColor3: { value: new THREE.Color('#3a2f5d') }, 
-
+    uColor1: { value: new THREE.Color('#1a3d7c') },
+    uColor2: { value: new THREE.Color('#2c4a63') },
+    uColor3: { value: new THREE.Color('#3a2f5d') }, 
 
     },
     vertexShader: `

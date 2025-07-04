@@ -11,6 +11,8 @@ import { CelestialBackground } from '@/components/CelestialBackground';
 import { KineticGlassPanel } from '@/components/KineticGlassPanel';
 import CurriculumTimeline  from '@/components/Curriculum';
 import { ModernFooter } from '@/components/Footer';
+import MentorsSection from '@/components/MentorsSection';
+
 const useSmoothScroll = () => {
     useEffect(() => {
         const lenis = new Lenis({
@@ -26,7 +28,6 @@ const useSmoothScroll = () => {
     }, []);
 };
 
-// Hero Title Component
 const letterVariants = {
   hidden: { opacity: 0, y: 50, filter: "blur(8px)" },
   visible: { opacity: 1, y: 0, filter: "blur(0px)" },
@@ -97,7 +98,6 @@ export default function HomePage() {
             
             <main className="container mx-auto px-4 py-24 sm:py-32 space-y-36 sm:space-y-48 relative z-10">
               <Navbar />
-                {/* --- Hero Section --- */}
                 <section className="text-center flex flex-col items-center min-h-[80vh] justify-center">
                     <AnimatedTitle title="Young Devs" />
                     <motion.p 
@@ -117,7 +117,6 @@ export default function HomePage() {
                     </motion.div>
                 </section>
                 
-                {/* --- Overview Section --- */}
                 <KineticGlassPanel className="max-w-5xl mx-auto">
                     <div  id="overview"  className="flex flex-col md:flex-row items-center gap-10">
                         <FaGraduationCap className="text-8xl text-primary flex-shrink-0"/>
@@ -134,11 +133,12 @@ export default function HomePage() {
                 <ProgramFeatures />
 
                 <CurriculumTimeline />
+                <MentorsSection />
 
                 <KineticGlassPanel id="why" className="max-w-6xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-12 p-4">
                         <div>
-                            <h3 className="text-3xl font-bold font-display text-foreground mb-6">🎁 What Makes Us Unique?</h3>
+                            <h3 className="text-3xl font-bold font-display text-foreground mb-6">What Makes Us Unique?</h3>
                             <ul className="space-y-4 text-lg text-muted-foreground">
                                 <IconListItem>Designed specifically for ambitious under-18 learners.</IconListItem>
                                 <IconListItem>Hands-on from day one—no boring, passive lectures.</IconListItem>
@@ -148,7 +148,7 @@ export default function HomePage() {
                             </ul>
                         </div>
                         <div>
-                            <h3 className="text-3xl font-bold font-display text-foreground mb-6">📜 Tangible Outcomes</h3>
+                            <h3 className="text-3xl font-bold font-display text-foreground mb-6">Tangible Outcomes</h3>
                             <ul className="space-y-4 text-lg text-muted-foreground">
                                 <IconListItem>Build a portfolio of 4+ projects and 1 major capstone.</IconListItem>
                                 <IconListItem>Gain the ability to deconstruct and solve real-world problems with code.</IconListItem>
