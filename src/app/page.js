@@ -9,6 +9,7 @@ import { AccordionFAQ } from '@/components/AccordionFAQ';
 import { KineticGlassPanel } from '@/components/KineticGlassPanel';
 import CurriculumTimeline  from '@/components/Curriculum';
 import MentorsSection from '@/components/MentorsSection';
+import Link from 'next/link';
 
 const useSmoothScroll = () => {
     useEffect(() => {
@@ -169,11 +170,11 @@ export default function HomePage() {
                       className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6"
                     >
                       <button className="group relative inline-flex h-12 w-48 items-center justify-center overflow-hidden rounded-full bg-primary px-8 py-3 text-lg font-bold text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background hover:scale-105 hover:shadow-lg hover:shadow-primary/40">
-                          <span className="z-10">Apply Now</span>
+                          <span className="z-10"><Link href="/apply">Apply Now</Link></span>
                           <div className="absolute inset-0 h-full w-full -translate-x-full transform bg-white/20 transition-transform duration-500 ease-in-out group-hover:translate-x-0"></div>
                       </button>
                       <button className="group relative inline-flex h-12 w-48 items-center justify-center overflow-hidden rounded-full border border-gray-400 bg-transparent px-8 py-3 text-lg font-bold text-gray-200 transition-all duration-300 hover:border-white hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-background">
-                          Know More
+                         <a href='#features'> Know More </a>
                       </button>
                     </motion.div>
                 </section>

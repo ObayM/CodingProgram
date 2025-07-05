@@ -185,12 +185,3 @@ export default function ApplicationPage() {
     );
 }
 
-////////fsdafsafsfsdfsfsdafdsafdsfdfasdfsadfsdfadfasfdffdsafdsjhhguygiufgg,nkjhkhjhjkjkjhgjhgjkhjggiphuh;ijh;jj
-////jilj
-//jkj;j
-// /kjljj;/dfasdfsafdsfds dasfdsa fdasfd fasdf safdsfdfasfd fdsfdsaf dsafd fasf asdaffdasfd fd saf afdadafdsfdsa f
-////////fdsa f/////a fds///
-////fsd af//// safd/a
-//// afsd//// adfas
-/// asfdsa f///ds af
-// /afsd//f sadfsdfdsafdsfafsafdasfdfdsafdsaf dsfadsaf  dsafdsaf safdfdfsf fdsa fdsfdsfdsfdsfdsafsdafdsfdsafdfsadfsafsdfsafdsa daf a dfas fdafsfd dsafd sd fasff saf sd fa fdsfdsaf
