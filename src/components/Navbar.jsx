@@ -3,10 +3,13 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 import NLink from 'next/link';
+import { usePathname } from 'next/navigation'; 
 import { FaCode, FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   const navLinks = [
     { to: 'overview', label: 'Overview' },
@@ -66,28 +69,44 @@ const Navbar = () => {
             </NLink>
 
             <div className="hidden md:flex items-center space-x-8">
-              {navLinks.map((link) =>
-                link.to.startsWith('/') ? (
-                  <NLink key={link.to} href={link.to} className={linkClassName}>
+              {navLinks.map((link) => {
+                const isPageLink = link.to.startsWith('/');
+
+                if (isPageLink) {
+                  return (
+                    <NLink key={link.to} href={link.to} className={linkClassName}>
+                      {link.label}
+                      <span className="absolute bottom-[-6px] left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center" />
+                    </NLink>
+                  );
+                }
+
+
+                if (isHomePage) {
+                  return (
+                    <ScrollLink
+                      key={link.to}
+                      to={link.to}
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={500}
+                      className={linkClassName}
+                      activeClass="text-cyan-400 font-bold"
+                    >
+                      {link.label}
+                      <span className="absolute bottom-[-6px] left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center" />
+                    </ScrollLink>
+                  );
+                }
+
+                return (
+                  <NLink key={link.to} href={`/#${link.to}`} className={linkClassName}>
                     {link.label}
                     <span className="absolute bottom-[-6px] left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center" />
                   </NLink>
-                ) : (
-                  <ScrollLink
-                    key={link.to}
-                    to={link.to}
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={500}
-                    className={linkClassName}
-                    activeClass="text-cyan-400 font-bold"
-                  >
-                    {link.label}
-                    <span className="absolute bottom-[-6px] left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center" />
-                  </ScrollLink>
-                )
-              )}
+                );
+              })}
             </div>
 
             <div className="flex items-center gap-4">
@@ -128,32 +147,50 @@ const Navbar = () => {
               className="h-full flex flex-col items-center justify-center gap-8"
               onClick={(e) => e.stopPropagation()}
             >
-              {navLinks.map((link) => (
-                <motion.div key={link.to} variants={mobileLinkVariants}>
-                  {link.to.startsWith('/') ? (
-                    <NLink
-                      href={link.to}
-                      className="text-slate-200 hover:text-cyan-400 transition-colors duration-300 font-medium cursor-pointer text-2xl"
-                      onClick={closeMenu}
-                    >
+              {navLinks.map((link) => {
+                const isPageLink = link.to.startsWith('/');
+                const mobileLinkClass =
+                  'text-slate-200 hover:text-cyan-400 transition-colors duration-300 font-medium cursor-pointer text-2xl';
+                
+                // If it's a link to another page (e.g., /leaderboard)
+                if (isPageLink) {
+                  return (
+                    <motion.div key={link.to} variants={mobileLinkVariants}>
+                      <NLink href={link.to} className={mobileLinkClass} onClick={closeMenu}>
+                        {link.label}
+                      </NLink>
+                    </motion.div>
+                  );
+                }
+
+
+                if (isHomePage) {
+                  return (
+                    <motion.div key={link.to} variants={mobileLinkVariants}>
+                      <ScrollLink
+                        to={link.to}
+                        spy={true}
+                        smooth={true}
+                        offset={-100}
+                        duration={500}
+                        className={mobileLinkClass}
+                        activeClass="text-cyan-400 font-bold"
+                        onClick={closeMenu}
+                      >
+                        {link.label}
+                      </ScrollLink>
+                    </motion.div>
+                  );
+                }
+
+                return (
+                  <motion.div key={link.to} variants={mobileLinkVariants}>
+                    <NLink href={`/#${link.to}`} className={mobileLinkClass} onClick={closeMenu}>
                       {link.label}
                     </NLink>
-                  ) : (
-                    <ScrollLink
-                      to={link.to}
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      duration={500}
-                      className="text-slate-200 hover:text-cyan-400 transition-colors duration-300 font-medium cursor-pointer text-2xl"
-                      activeClass="text-cyan-400 font-bold"
-                      onClick={closeMenu}
-                    >
-                      {link.label}
-                    </ScrollLink>
-                  )}
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
               <motion.div variants={mobileLinkVariants}>
                 <motion.button
                   whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(34, 211, 238, 0.6)' }}

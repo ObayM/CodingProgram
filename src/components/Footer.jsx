@@ -92,7 +92,6 @@ A learning platform That understand you!
             </ul>
           </div>
           
-          {/* Socials Column */}
           <div className="col-span-2 md:col-span-1">
              <h4 className="font-bold tracking-wider text-white/90">Follow Us</h4>
              <div className="flex mt-4 space-x-4">
@@ -122,7 +121,6 @@ A learning platform That understand you!
   );
 };
 
-// A small helper component for footer links to keep the main component cleaner
 const FooterLink = ({ href, children }) => (
   <li>
     <motion.a
