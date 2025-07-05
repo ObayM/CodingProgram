@@ -49,3 +49,8 @@ npm run dev
 ```
 
 Go to `http://localhost:3000` and you’re good.
+
+## AI
+
+Got some debugging help from AI (Gemini) and used it to help/guide me to create some components.
+Also used Gemini Code Assist code completions and Vscode
