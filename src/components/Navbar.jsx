@@ -116,7 +116,7 @@ const Navbar = () => {
                   whileTap={{ scale: 0.95 }}
                   className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold px-5 py-2 rounded-full transition-shadow duration-300"
                 >
-                  Apply Now
+                  <NLink href="/apply">Apply Now</NLink>
                 </motion.button>
               </div>
 
