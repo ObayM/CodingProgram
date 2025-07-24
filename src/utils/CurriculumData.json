@@ -1,0 +1,43 @@
+{
+  "tracks": [
+    {
+      "id": "web-dev-foundations",
+      "name": "Web Dev Foundations",
+      "description": "Master the core technologies of the web, from basic HTML structure to advanced JavaScript logic. This track is the perfect starting point for your development journey.",
+      "modules": [
+        { "id": 1, "title": "Code & Concepts", "project": "Mini Calculator", "icon": "FaRocket", "description": "Lay the foundation. Learn essential syntax, variables, functions, and the core principles of programming logic." },
+        { "id": 2, "title": "Logic & Loops", "project": "Guess the Number", "icon": "FaLightbulb", "description": "Master control flow. Dive deep into conditional statements, loops, and building interactive, logic-driven applications." },
+        { "id": 3, "title": "Structure & Data", "project": "Expense Tracker", "icon": "FaProjectDiagram", "description": "Organize your code and information. Explore arrays, objects, and how to structure data for complex applications." },
+        { "id": 4, "title": "Bugs & Breakthroughs", "project": "Fix the Game", "icon": "FaTools", "description": "Embrace the debugging process. Learn powerful techniques to find, diagnose, and fix bugs, turning frustration into triumph." },
+        { "id": 5, "title": "APIs & Asynchronicity", "project": "Weather App", "icon": "FaCloudSun", "description": "Connect to the world. Understand asynchronous JavaScript and fetch data from third-party APIs to build dynamic apps." },
+        { "id": 6, "title": "Capstone & Celebration", "project": "Final Portfolio", "icon": "FaTrophy", "description": "Bring it all together. Plan, build, and deploy a complete final project of your own design, showcasing your new skills." }
+      ]
+    },
+    {
+      "id": "react-mastery",
+      "name": "React Mastery",
+      "description": "Go from zero to hero with the world's most popular UI library. Learn to build fast, component-based, and scalable single-page applications.",
+      "modules": [
+        { "id": 1, "title": "Intro to React", "project": "Component Playground", "icon": "FaReact", "description": "Discover the React paradigm. Learn about JSX, components, and how to set up your first React application." },
+        { "id": 2, "title": "State & Props", "project": "Interactive Profile Card", "icon": "FaCogs", "description": "Manage data within your application. Master the concepts of state and props to create dynamic and interactive components." },
+        { "id": 3, "title": "Hooks & Lifecycle", "project": "Todo List App", "icon": "FaPaperclip", "description": "Unlock the power of functional components. Dive deep into essential hooks like useState, useEffect, and useContext." },
+        { "id": 4, "title": "Routing & Navigation", "project": "Multi-Page Blog", "icon": "FaRoute", "description": "Build single-page applications that feel like multi-page websites using React Router." },
+        { "id": 5, "title": "State Management", "project": "E-commerce Cart", "icon": "FaStore", "description": "Tackle complex state challenges with libraries like Redux Toolkit or Zustand for predictable and scalable state." },
+        { "id": 6, "title": "Advanced React", "project": "Dashboard with Charts", "icon": "FaChartBar", "description": "Explore advanced patterns, performance optimization, and testing strategies to become a true React professional." }
+      ]
+    },
+    {
+      "id": "backend-essentials",
+      "name": "Backend Essentials",
+      "description": "Build the engine that powers modern applications. Learn to create robust servers, manage databases, and build secure APIs with Node.js and Express.",
+      "modules": [
+        { "id": 1, "title": "Node.js & Express", "project": "Simple API Server", "icon": "FaServer", "description": "Start your backend journey. Learn the fundamentals of Node.js and create your first web server with Express." },
+        { "id": 2, "title": "Databases 101", "project": "User Management System", "icon": "FaDatabase", "description": "Learn how to store and retrieve data. Get hands-on with a NoSQL database like MongoDB." },
+        { "id": 3, "title": "RESTful APIs", "project": "Book Directory API", "icon": "FaPlug", "description": "Design and build clean, well-structured RESTful APIs that other applications can consume." },
+        { "id": 4, "title": "Authentication & Security", "project": "Secure Login System", "icon": "FaUserShield", "description": "Protect your application and users. Implement JWT-based authentication and learn security best practices." },
+        { "id": 5, "title": "Testing Your Backend", "project": "API Test Suite", "icon": "FaVial", "description": "Ensure your code is reliable and bug-free by writing unit and integration tests for your API endpoints." },
+        { "id": 6, "title": "Deployment & DevOps", "project": "Deploy Your API", "icon": "FaCloudUploadAlt", "description": "Take your application live! Learn how to deploy your backend to a cloud service like Vercel or Heroku." }
+      ]
+    }
+  ]
+}

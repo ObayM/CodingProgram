@@ -7,7 +7,7 @@ import { FaGraduationCap, FaCheckCircle } from 'react-icons/fa';
 import { ProgramFeatures} from '@/components/ProgramFeatures';
 import { AccordionFAQ } from '@/components/AccordionFAQ';
 import { KineticGlassPanel } from '@/components/KineticGlassPanel';
-import CurriculumTimeline  from '@/components/Curriculum';
+import {CurriculumSection}  from '@/components/Curriculum';
 import MentorsSection from '@/components/MentorsSection';
 import Link from 'next/link';
 
@@ -192,7 +192,7 @@ export default function HomePage() {
                 </KineticGlassPanel>
 
                 <ProgramFeatures />
-                <CurriculumTimeline />
+                <CurriculumSection />
                 <MentorsSection />
 
                 <KineticGlassPanel id="why" className="max-w-6xl mx-auto">
