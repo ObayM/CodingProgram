@@ -100,7 +100,7 @@ const subtitleContainerVariants = {
   visible: {
     transition: {
       staggerChildren: 0.06,
-      delayChildren: 0.8, // Start after the title animation
+      delayChildren: 0.8, 
     },
   },
 };
@@ -145,7 +145,6 @@ const IconListItem = ({ children }) => (
     </motion.li>
 );
 
-// Main Page Component
 export default function HomePage() {
     useSmoothScroll();
 
@@ -185,7 +184,7 @@ export default function HomePage() {
                         <div className="text-center md:text-left">
                             <h2 className="text-3xl sm:text-4xl font-bold font-display text-foreground mb-3">More Than a Bootcamp. A Foundry.</h2>
                             <p className="text-gray-300 leading-relaxed text-lg">
-                              Young Devs is an elite 6-week accelerator designed to forge the next generation of tech innovators. We don&apos;t just teach you to code—we cultivate the mindset, skills, and confidence to solve any complex problem.
+                              Young Devs is a 6-week accelerator designed to teach coding for the next generation of tech innovators. We don&apos;t just teach you to code, we cultivate the mindset, skills, and confidence to solve any complex problem.
                             </p>
                         </div>
                     </div>
@@ -214,7 +213,6 @@ export default function HomePage() {
                                 <IconListItem>Gain the ability to deconstruct and solve real-world problems with code.</IconListItem>
                                 <IconListItem>Be prepared to accelerate into advanced coding paths.</IconListItem>
                                 <IconListItem>Receive the official Young Devs Certificate of Achievement.</IconListItem>
-                                <IconListItem>Earn a place on our Hall of Fame leaderboard (optional).</IconListItem>
                             </ul>
                         </div>
                     </div>

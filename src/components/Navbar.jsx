@@ -16,7 +16,6 @@ const Navbar = () => {
     { to: 'features', label: 'Features' },
     { to: 'curriculum', label: 'Curriculum' },
     { to: 'faq', label: 'FAQ' },
-    { to: '/leaderboard', label: 'Leaderboard' },
   ];
 
   const navContainerVariants = {

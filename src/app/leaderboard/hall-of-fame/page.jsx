@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from "framer-motion";
 import { FaTrophy, FaGithub } from 'react-icons/fa';
@@ -54,12 +54,26 @@ export default function HallOfFamePage() {
             try {
                 const response = await fetch('/api/leaderboard');
                 if (!response.ok) {
-                    throw new Error('Failed to fetch leaderboard data');
+                    const mockData = [
+                        { rank: 1, avatar: '/images/avatars/avatar1.png', name: 'Alex Johnson', project: 'AI-Powered Code Reviewer', score: 98, github: '#' },
+                        { rank: 2, avatar: '/images/avatars/avatar2.png', name: 'Maria Garcia', project: 'Decentralized Social Network', score: 95, github: '#' },
+                        { rank: 3, avatar: '/images/avatars/avatar3.png', name: 'Chen Wei', project: 'Real-time Data Visualization', score: 92, github: '#' },
+                        { rank: 4, avatar: '/images/avatars/avatar4.png', name: 'Fatima Al-Sayed', project: 'E-commerce Recommendation Engine', score: 90, github: '#' },
+                    ];
+                    setLeaderboardData(mockData);
+                    return;
                 }
                 const data = await response.json();
                 setLeaderboardData(data);
             } catch (err) {
-                setError(err.message);
+                 const mockData = [
+                    { rank: 1, avatar: 'https://i.pravatar.cc/40?u=1', name: 'Alex Johnson', project: 'AI-Powered Code Reviewer', score: 98, github: '#' },
+                    { rank: 2, avatar: 'https://i.pravatar.cc/40?u=2', name: 'Maria Garcia', project: 'Decentralized Social Network', score: 95, github: '#' },
+                    { rank: 3, avatar: 'https://i.pravatar.cc/40?u=3', name: 'Chen Wei', project: 'Real-time Data Visualization', score: 92, github: '#' },
+                    { rank: 4, avatar: 'https://i.pravatar.cc/40?u=4', name: 'Fatima Al-Sayed', project: 'E-commerce Recommendation Engine', score: 90, github: '#' },
+                    { rank: 5, avatar: 'https://i.pravatar.cc/40?u=5', name: 'David Smith', project: 'IoT Home Automation Hub', score: 88, github: '#' },
+                ];
+                setLeaderboardData(mockData);
             } finally {
                 setIsLoading(false);
             }
@@ -83,22 +97,43 @@ export default function HallOfFamePage() {
 
                 <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, delay: 1.5, ease: [0.22, 1, 0.36, 1] }}>
                     <KineticGlassPanel className="max-w-5xl mx-auto p-4 sm:p-6">
-                        <div className="grid grid-cols-12 items-center gap-4 px-4 py-2 mb-2 text-sm font-bold text-muted-foreground uppercase tracking-wider border-b border-white/10">
-                            <div className="col-span-2 sm:col-span-1">#</div>
-                            <div className="col-span-6 sm:col-span-5">Student</div>
-                            <div className="hidden sm:block sm:col-span-4">Capstone Project</div>
-                            <div className="col-span-4 sm:col-span-2 text-right">Score</div>
-                        </div>
-                        
-                        {isLoading && <div className="text-center py-8 text-gray-400">Loading Hall of Fame...</div>}
-                        {error && <div className="text-center py-8 text-red-500">Error: {error}</div>}
-                        {!isLoading && !error && (
-                             <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-                                {leaderboardData.map((entry, index) => (
-                                    <LeaderboardRow key={entry.rank} entry={entry} index={index} />
-                                ))}
+                        <div className="relative">
+                            
+                            <div className="blur-md select-none pointer-events-none">
+                                <div className="grid grid-cols-12 items-center gap-4 px-4 py-2 mb-2 text-sm font-bold text-muted-foreground uppercase tracking-wider border-b border-white/10">
+                                    <div className="col-span-2 sm:col-span-1">#</div>
+                                    <div className="col-span-6 sm:col-span-5">Student</div>
+                                    <div className="hidden sm:block sm:col-span-4">Capstone Project</div>
+                                    <div className="col-span-4 sm:col-span-2 text-right">Score</div>
+                                </div>
+                                
+                                {isLoading && <div className="text-center py-8 text-gray-400">Loading Hall of Fame...</div>}
+                                {error && <div className="text-center py-8 text-red-500">Error: {error}</div>}
+                                {!isLoading && !error && (
+                                    <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
+                                        {leaderboardData.map((entry, index) => (
+                                            <LeaderboardRow key={entry.rank} entry={entry} index={index} />
+                                        ))}
+                                    </motion.div>
+                                )}
+                            </div>
+
+                            <motion.div 
+                                className="absolute inset-0 flex flex-col items-center justify-center text-center rounded-lg bg-black/20"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5, delay: 0.5 }}
+                            >
+                                <FaTrophy className="text-5xl text-primary mb-4 animate-pulse" />
+                                <h3 className="text-3xl font-bold text-white tracking-tight drop-shadow-lg mb-2">
+                                    Coming Soon!
+                                </h3>
+                                <p className="text-gray-300 max-w-xs">
+                                Check back soon!
+                                </p>
                             </motion.div>
-                        )}
+
+                        </div>
                     </KineticGlassPanel>
                 </motion.div>
             </main>

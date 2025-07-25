@@ -2,12 +2,11 @@
 
 ## Some Screenshots
 ![Hero Image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/4d53fb5a2e647793109d3f7b1a4bd7e5a2c9c4bf_image.png)
-![Leaderboard](https://hc-cdn.hel1.your-objectstorage.com/s/v3/1e020299f07ba7c993f73bb37d7542bd2f02b6fa_image.png)
 
-Live demo: [your-live-url.com](https://your-live-url.com)
+Live demo: [youngdevs.vercel.app](https://youngdevs.vercel.app)
 
 This is a landing page for a coding accelerator. It's built with modern frontend tools and has a bunch of animations, including a trippy animated background using React Three Fiber. The design uses glassmorphism everywhere, so it looks kinda fancy.
-/
+
 
 ## Tech Stack
 
@@ -18,22 +17,14 @@ This is a landing page for a coding accelerator. It's built with modern frontend
 * React Three Fiber
 
 
-## Routes
-
-* `/` – Home
-* `/leaderboard` – Leaderboard
-* `/leaderboard/hall-of-fame` – Hall of Fame
-* `/api/leaderboard` – API route (GET) to fetch leaderboard data.
-  This is used on the Hall of Fame page to show who's crushing it.
-
 
 ## Setup
 
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/ObayM/CodingProgram.git
+cd CodingProgram
 ```
 
 ### 2. Install dependencies
