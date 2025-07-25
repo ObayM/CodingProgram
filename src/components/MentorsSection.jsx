@@ -147,6 +147,3 @@ const MentorsSection = () => {
 };
 
 export default MentorsSection;
-//So here i need to brainstorm what are going to change are it the footer or adding more section and what about the platform so 
-// brainstorming is a very important kind of a thing to be hones
-//so yeah that is good okay and overall yeah and we need a slack bot thing 

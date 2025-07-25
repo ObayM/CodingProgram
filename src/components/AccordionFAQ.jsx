@@ -75,7 +75,7 @@ export const AccordionFAQ = () => {
         transition={{ duration: 0.8 }}
         className="text-4xl sm:text-5xl font-bold font-display text-center mb-16 tracking-wide"
       >
-        Clearing the Nebula
+        Frequently Asked Questions
       </motion.h2>
       <KineticGlassPanel tiltEnable={false}>
         <div className="p-4">

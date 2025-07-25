@@ -192,7 +192,7 @@ export default function HomePage() {
 
                 <ProgramFeatures />
                 <CurriculumSection />
-                <MentorsSection />
+                {/* <MentorsSection /> //removed for now because of mock data */}
 
                 <KineticGlassPanel id="why" className="max-w-6xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-12 p-4">

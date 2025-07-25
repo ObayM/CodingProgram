@@ -33,7 +33,6 @@ const socialLinks = [
 const Footer = () => {
   return (
     <footer className="relative bg-black/40 text-white pt-20 overflow-hidden">
-      {/* Animated Aurora Background */}
       <div className="absolute inset-0 -z-10 opacity-30">
         <motion.div
           className="absolute bottom-0 left-[-50%] top-0 w-[200%] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/30 via-black/0 to-black/0"
@@ -92,23 +91,7 @@ A learning platform That understand you!
             </ul>
           </div>
           
-          <div className="col-span-2 md:col-span-1">
-             <h4 className="font-bold tracking-wider text-white/90">Follow Us</h4>
-             <div className="flex mt-4 space-x-4">
-                {socialLinks.map(social => (
-                    <motion.a 
-                        key={social.name} 
-                        href={social.href} 
-                        aria-label={social.name}
-                        className="text-muted-foreground hover:text-primary transition-colors text-2xl"
-                        whileHover={{ y: -3 }}
-                        transition={{ type: 'spring', stiffness: 300 }}
-                    >
-                        {social.icon}
-                    </motion.a>
-                ))}
-             </div>
-          </div>
+
         </div>
 
         <div className="border-t border-white/10 py-6 text-center">

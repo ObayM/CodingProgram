@@ -151,7 +151,6 @@ const Navbar = () => {
                 const mobileLinkClass =
                   'text-slate-200 hover:text-cyan-400 transition-colors duration-300 font-medium cursor-pointer text-2xl';
                 
-                // If it's a link to another page (e.g., /leaderboard)
                 if (isPageLink) {
                   return (
                     <motion.div key={link.to} variants={mobileLinkVariants}>
