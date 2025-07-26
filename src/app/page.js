@@ -10,6 +10,8 @@ import { KineticGlassPanel } from '@/components/KineticGlassPanel';
 import {CurriculumSection}  from '@/components/Curriculum';
 import MentorsSection from '@/components/MentorsSection';
 import Link from 'next/link';
+import { OutcomesSection } from '@/components/OutcomesSection';
+import { WhyUsSection } from '@/components/WhyusSection';
 
 const useSmoothScroll = () => {
     useEffect(() => {
@@ -194,29 +196,9 @@ export default function HomePage() {
                 <CurriculumSection />
                 {/* <MentorsSection /> //removed for now because of mock data */}
 
-                <KineticGlassPanel id="why" className="max-w-6xl mx-auto">
-                    <div className="grid md:grid-cols-2 gap-12 p-4">
-                        <div>
-                            <h3 className="text-3xl font-bold font-display text-foreground mb-6">What Makes Us Unique?</h3>
-                            <ul className="space-y-4 text-lg text-muted-foreground">
-                                <IconListItem>Designed specifically for ambitious under-18 learners.</IconListItem>
-                                <IconListItem>Hands-on from day one—no boring, passive lectures.</IconListItem>
-                                <IconListItem>Fosters confidence and creative problem-solving, not just coding.</IconListItem>
-                                <IconListItem>An elite yet collaborative and inspiring community.</IconListItem>
-                                <IconListItem>Every student graduates with a portfolio-worthy capstone project.</IconListItem>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-3xl font-bold font-display text-foreground mb-6">Tangible Outcomes</h3>
-                            <ul className="space-y-4 text-lg text-muted-foreground">
-                                <IconListItem>Build a portfolio of 4+ projects and 1 major capstone.</IconListItem>
-                                <IconListItem>Gain the ability to deconstruct and solve real-world problems with code.</IconListItem>
-                                <IconListItem>Be prepared to accelerate into advanced coding paths.</IconListItem>
-                                <IconListItem>Receive the official Young Devs Certificate of Achievement.</IconListItem>
-                            </ul>
-                        </div>
-                    </div>
-                </KineticGlassPanel>
+
+                <OutcomesSection />
+                <WhyUsSection />
 
                 <AccordionFAQ />
 
