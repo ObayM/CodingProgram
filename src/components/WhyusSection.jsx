@@ -10,12 +10,14 @@ import { FaCheckCircle, FaLightbulb } from 'react-icons/fa';
 gsap.registerPlugin(ScrollTrigger);
 
 const uniqueFeatures = [
-    { text: "Designed for the ambitious under-18 innovator." },
-    { text: "Hands-on from day one. No boring theory." },
-    { text: "Fosters confidence and creative problem-solving." },
-    { text: "Join an elite, collaborative & inspiring community." },
-    { text: "Graduate with a portfolio-worthy capstone project." },
+  { text: "You don’t just sit through lessons, you actually build cool stuff every week." },
+  { text: "We move fast. No boring lectures, just quick recaps and real building time." },
+  { text: "You pick what you build, we give you the problem, you choose the idea." },
+  { text: "You’ll be surrounded by other people who are serious about getting better, not just 'learning to code'." },
+  { text: "Mentors actually reply fast, help when you’re stuck, and want you to win." },
+  { text: "You finish the program with actual proof you can build — not just some certificate." }
 ];
+
 
 export const WhyUsSection = () => {
     const mainRef = useRef(null);
@@ -111,7 +113,7 @@ export const WhyUsSection = () => {
 
                             }}
                         >
-                            <p className="text-5xl font-bold text-center text-stone-300 leading-snug">
+                            <p className="text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-stone-100 to-blue-300 leading-snug">
                                 {feature.text}
                             </p>
                         </div>

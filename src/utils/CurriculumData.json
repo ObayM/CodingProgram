@@ -3,6 +3,7 @@
     {
       "id": "web-dev",
       "name": "Web Dev",
+      "icon": "FaLaptopCode", 
       "description": "Build and ship working full stack tools using modern web technologies like React, Express, and Supabase.",
       "modules": [
         { "id": 1, "week": "Week 1", "title": "Fast Recap", "project": "Ship a public portfolio or landing page", "icon": "FaRocket", "description": "Recap HTML, CSS, and JS basics. Learn to structure content and styles to build and deploy a professional static website that introduces you or an idea." },
@@ -15,7 +16,8 @@
     },
     {
       "id": "coding-fundamentals",
-      "name": "Coding Fundamentals",
+      "name": "Fundamentals", 
+      "icon": "FaCode", 
       "description": "Ship open source tools, CLI apps, bots, and backend services that developers and users will love.",
       "modules": [
         { "id": 1, "week": "Week 1", "title": "Scripting & CLI Tools", "project": "Build a simple command-line tool", "icon": "FaTools", "description": "Go beyond basic scripts. Build a useful command-line tool that solves a problem for you or other developers, like a file organizer or code generator." },
@@ -29,6 +31,7 @@
     {
       "id": "data-science",
       "name": "Data Science",
+      "icon": "FaChartBar", 
       "description": "Go beyond the numbers. Analyze real-world data, uncover meaningful insights, and tell compelling stories with visualizations.",
       "modules": [
         { "id": 1, "week": "Week 1", "title": "Jupyter & Basic EDA", "project": "Perform an exploratory data analysis", "icon": "FaLightbulb", "description": "Learn the tools of the trade. Use Python and Jupyter Notebooks to conduct a basic exploratory data analysis (EDA) on a provided dataset to find initial patterns." },

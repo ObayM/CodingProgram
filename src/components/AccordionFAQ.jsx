@@ -9,25 +9,45 @@ import { clsx } from 'clsx';
 const faqItems = [
   {
     question: "Who is this program for?",
-    answer: "Young Devs is designed for ambitious learners aged 13-18 who are passionate about technology and problem-solving. It's for beginners with a strong drive and for those with some experience who want to solidify their fundamental skills."
+    answer: "YoungDevs is for teens (13–18) who’ve learned a bit of coding, maybe from YouTube, school, or a course — but want to go from 'I kind of know how to code' to 'I can actually build stuff on my own.' but don't worry even if you have no coding experience, we will help you get started."
   },
   {
-    question: "Do I need any prior coding experience?",
-    answer: "No prior experience is required. We start from the absolute fundamentals. All you need is a curious mind, a willingness to be challenged, and a commitment to the 6-week program."
+    question: "What do I need to join?",
+    answer: "Just a laptop, internet, and a basic understanding of how coding works (like what a variable or function is). If you've used Python, HTML/CSS, or JavaScript even once or twice — you're good. We’ll help you fill in the gaps, but beginners are welcome too."
   },
   {
-    question: "What technology will we be using?",
-    answer: "The core curriculum is built around Python, a versatile and powerful language used by companies like Google, Netflix, and NASA. This provides a strong foundation applicable to any area of software development."
+    question: "How much time does it take each week?",
+    answer: "Around 10–12 hours a week if you're focused. There’s one live session, one optional workshop, one project to build, and mentor check-ins. Some people go all-in and spend more, but if you show up and ship every week, that’s enough."
   },
   {
-    question: "What is the time commitment per week?",
-    answer: "Expect to commit around 5-7 hours per week. This includes live interactive sessions, hands-on project work, and engaging with the community. The more you put in, the more you'll get out."
+    question: "What happens if I fall behind?",
+    answer: "We get it — life happens. You can miss a session and catch up with recordings. But if you skip 2 weeks without shipping a project, you’ll be removed from the cohort. This keeps things real and fair for everyone putting in the work."
   },
   {
-    question: "What happens after I graduate?",
-    answer: "You'll leave with a portfolio of projects, a formal certification, and the problem-solving confidence to tackle more advanced topics like web development, data science, or AI. You'll also be part of the exclusive Young Devs alumni network."
-  }
+    question: "Do I get to choose what I build?",
+    answer: "Yep. Each week, we give you a problem to solve, and sometimes constraints (like 'use an API' or 'store user data'). But you decide how you solve it. don't worry, we’ll help you brainstorm ideas and guide you through the process."
+  },
+  {
+    question: "How are projects reviewed?",
+    answer: "You submit your project every Thrusday. Mentors and peers give feedback the next day, what’s good, what can improve, what could make it stand out more."
+  },
+  {
+    question: "Is this free?",
+    answer: "Yep, YoungDevs is completely free. We want to make sure anyone who’s serious about building can join, no matter their background."
+  },
+  {
+    question: "Can I use AI tools during the program?",
+    answer: "Yes, but not to write full projects for you. Use it like a co-pilot: ask it for help, suggestions, or explanations. But if you submit code you clearly didn’t understand or change, you’ll be asked to re-do it. This is about learning, not cheating."
+  },
+  {
+    question: "What will I walk away with?",
+    answer: "By the end, you’ll have 5 shipped projects, a final capstone, a public GitHub with real code, and a solid dev identity. You'll know how to take an idea, plan it, build it, and launch it in a week. That’s rare."
+  },
+  {
+    question: "Can I join if I’m outside the Middle East?",
+    answer: "Not yet, but we’re working on expanding. For now, we’re focused on the Middle East to build a strong local community. If you’re outside this region, stay tuned for future cohorts!"}
 ];
+
 
 const AccordionItem = ({ item, isOpen, onClick }) => (
   <div className="border-b border-white/10">

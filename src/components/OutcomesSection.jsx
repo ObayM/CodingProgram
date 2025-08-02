@@ -3,13 +3,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCheckCircle, FaRocket } from 'react-icons/fa';
+import { KineticGlassPanel } from './KineticGlassPanel';
 
 const tangibleOutcomes = [
-    { text: "Build a portfolio of 4+ projects & 1 major capstone." },
-    { text: "Deconstruct and solve real-world problems with code." },
-    { text: "Accelerate into advanced computer science paths." },
-    { text: "Earn the official Young Devs Certificate of Achievement." },
+  { text: "Build and ship 5+ real projects and share them publicly." },
+  { text: "Learn how to break down real problems and turn them into working products." },
+  { text: "Develop the skills to go deeper into open source, freelance work, or CS foundations." },
+  { text: "Leave with a public portfolio and GitHub that prove what you can actually build." }
 ];
+
 
 const gridContainerVariants = {
     hidden: { opacity: 0 },
@@ -75,27 +77,23 @@ export const OutcomesSection = () => {
                     style={{ perspective: 1000 }}
                 >
                     {tangibleOutcomes.map((outcome, i) => (
-                        <motion.div
+                        <KineticGlassPanel 
                             key={i}
-                            variants={gridItemVariants}
-                            className="group relative p-8 bg-gray-900/40 backdrop-blur-lg rounded-2xl 
-                                       border border-white/10 shadow-lg overflow-hidden"
                         >
-
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                                            bg-gradient-to-br from-primary via-transparent to-primary
-                                            blur-[3px]"></div>
-                            <div className="absolute inset-px bg-gray-900/60 rounded-xl"></div>
                             
-                            <div className="relative z-10 flex flex-col h-full">
-                                <FaCheckCircle className="text-3xl text-primary mb-4" />
-                                <p className="text-xl font-semibold text-gray-200 flex-grow">
-                                    {outcome.text}
-                                </p>
-                            </div>
-                        </motion.div>
+
+                                
+                                <div className="relative gap-4  z-10 flex flex-col h-full">
+                                    <FaCheckCircle className="text-3xl text-primary mb-4" />
+                                    <p className="text-xl font-semibold text-gray-200 flex-grow">
+                                        {outcome.text}
+                                    </p>
+                                </div>
+                        </KineticGlassPanel>
+
                     ))}
                 </motion.div>
+                
             </div>
         </section>
     );
