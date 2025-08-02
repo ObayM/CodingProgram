@@ -59,7 +59,7 @@ export const CurriculumSection = () => {
           transition={{ duration: 0.8 }}
           className="text-4xl sm:text-5xl font-bold text-center mb-4 tracking-tight"
         >
-          Explore Our Curriculum
+          Our Curriculum
         </motion.h2>
         <motion.p
            initial={{ opacity: 0, y: -20 }}
@@ -68,7 +68,7 @@ export const CurriculumSection = () => {
            transition={{ duration: 0.8, delay: 0.2 }}
            className="text-lg text-gray-400 text-center max-w-3xl mx-auto mb-16"
         >
-          {activeTrack.description}
+          {activeTrack?.description}
         </motion.p>
         
         <div className="flex justify-center mb-12">
@@ -103,7 +103,7 @@ export const CurriculumSection = () => {
         >
           <motion.div variants={itemVariants} className="md:w-1/3">
             <div className="bg-black/20 backdrop-blur-sm p-4 rounded-xl border border-white/10 h-full">
-              <h3 className="text-lg font-bold text-white/90 mb-4 px-2">Track Modules</h3>
+              <h3 className="text-lg font-bold text-white/90 mb-4 px-2">Weekly Breakdown</h3>
               <div className="flex flex-col gap-2">
                 {activeTrack?.modules.map((module) => (
                   <motion.button
@@ -117,7 +117,7 @@ export const CurriculumSection = () => {
                     whileHover={{ scale: 1.03 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                   >
-                    <p className="font-bold tracking-wider text-xs opacity-80">MODULE {module.id}</p>
+                    <p className="font-bold tracking-wider text-xs opacity-80">{module.week.toUpperCase()}</p>
                     <p className="font-semibold text-base">{module.title}</p>
                   </motion.button>
                 ))}
@@ -128,28 +128,26 @@ export const CurriculumSection = () => {
           <motion.div variants={itemVariants} className="md:w-2/3">
             <AnimatePresence mode="wait">
               {activeModule && (
-<motion.div
-  key={activeTrack.id + activeModule.id}
-  initial={{ opacity: 0, x: 30 }}
-  animate={{ opacity: 1, x: 0 }}
-  exit={{ opacity: 0, x: -30 }}
-  transition={{ duration: 0.4, ease: "easeInOut" }}
-  className="h-full"
->
-  <KineticGlassPanel tiltEnable={true} className="h-full w-full">
-    <div className="flex flex-col items-center text-center p-8 lg:p-12 h-full justify-center">
-      <div className="text-5xl lg:text-6xl text-primary mb-5">{iconMap[activeModule.icon]}</div>
-      <p className="font-bold text-primary/80 font-display tracking-wider">MODULE {activeModule.id}</p>
-      <h4 className="text-3xl lg:text-4xl font-bold mt-2">{activeModule.title}</h4>
-      <p className="text-base text-gray-300 mt-4 max-w-md">
-        {activeModule.description}
-      </p>
-      <p className="text-sm text-white mt-8 bg-black/30 px-4 py-2 rounded-full font-medium border border-white/10">
-        Project: <span className="font-bold">{activeModule.project}</span>
-      </p>
-    </div>
-  </KineticGlassPanel>
-</motion.div>
+              <motion.div
+                key={activeModule.id}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="h-full"
+              >
+                <KineticGlassPanel tiltEnable={true} className="h-full w-full">
+                  <div className="flex flex-col items-center text-center p-8 lg:p-12 h-full justify-center">
+                    <div className="text-5xl lg:text-6xl text-primary mb-5">{iconMap[activeModule.icon]}</div>
+                    <p className="font-bold text-primary/80 font-display tracking-wider">{activeModule.week.toUpperCase()}</p>
+                    <h4 className="text-3xl lg:text-4xl font-bold mt-2">{activeModule.title}</h4>
+                    <p className="text-gray-400 mt-3 font-semibold">Goal: <span className="text-gray-200">{activeModule.project}</span></p>
+                    <p className="text-base text-gray-300 mt-4 max-w-md">
+                      {activeModule.description}
+                    </p>
+                  </div>
+                </KineticGlassPanel>
+              </motion.div>
               )}
             </AnimatePresence>
           </motion.div>

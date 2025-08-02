@@ -161,7 +161,7 @@ export default function HomePage() {
                     <AnimatedTitle title="Solve Real Problems" highlightedWords={['Problems']} />
                     
                     <AnimatedSubtitle 
-                      text="A 6-week odyssey for ambitious young minds. We don't just teach. We transform you into a creator, a problem-solver, an innovator." 
+                      text="A 7-week program for high school students who want to actually build real stuff. Learn by doing. Ship a project every week. Build tools, websites, bots, or ANYTHING and launch them publicly!" 
                     />
 
                     <motion.div
@@ -179,18 +179,20 @@ export default function HomePage() {
                       </button>
                     </motion.div>
                 </section>
-                
-                <KineticGlassPanel className="max-w-5xl mx-auto">
-                    <div  id="overview"  className="flex flex-col md:flex-row items-center gap-10">
-                        <FaGraduationCap className="text-8xl text-primary flex-shrink-0"/>
-                        <div className="text-center md:text-left">
-                            <h2 className="text-3xl sm:text-4xl font-bold font-display text-foreground mb-3">More Than a Bootcamp. A Foundry.</h2>
-                            <p className="text-gray-300 leading-relaxed text-lg">
-                              Young Devs is a 6-week accelerator designed to teach coding for the next generation of tech innovators. We don&apos;t just teach you to code, we cultivate the mindset, skills, and confidence to solve any complex problem.
-                            </p>
-                        </div>
-                    </div>
-                </KineticGlassPanel>
+             <KineticGlassPanel className="max-w-5xl mx-auto">
+              <div id="overview" className="flex flex-col md:flex-row items-center gap-10">
+                <FaGraduationCap className="text-8xl text-primary flex-shrink-0" />
+                <div className="text-center md:text-left">
+                  <h2 className="text-3xl sm:text-4xl font-bold font-display text-foreground mb-3">
+                    You Know the Basics. Now Build Something Real.
+                  </h2>
+                  <p className="text-gray-300 leading-relaxed text-lg">
+                    YoungDevs is a 7-week program where high schoolers build and launch a new project every single week. Web apps, developer tools, or data science projects, it’s all about learning by doing, shipping fast, and building confidence through real results.
+                  </p>
+                </div>
+              </div>
+            </KineticGlassPanel>
+
 
                 <ProgramFeatures />
                 <CurriculumSection />

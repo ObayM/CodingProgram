@@ -3,41 +3,42 @@
 import { motion } from 'framer-motion';
 import { KineticGlassPanel } from './KineticGlassPanel';
 import { 
-  FaHammer, FaChalkboardTeacher, FaUsers, FaTrophy, FaGamepad, FaQuestionCircle, FaCertificate 
+  FaHammer, FaChalkboardTeacher, FaUsers, FaTrophy, FaGamepad, FaCompass, FaCertificate 
 } from 'react-icons/fa';
-
 const features = [
   {
     icon: <FaHammer />,
-    title: "Project-Based Forging",
-    description: "You won't just learn theory. You'll build impactful, real-world projects from day one, solidifying concepts through creation."
+    title: "Build From Day One",
+    description: "No tutorials, no fake projects. Every week you’ll solve a real problem by building and launching something from scratch."
+  },
+  
+  {
+    icon: <FaCompass />,
+    title: "Problem-First Learning",
+    description: "Every project starts with a real-world problem — not a tutorial. We teach you how to think like a builder, find your own solutions, and turn vague prompts into working products."
   },
   {
     icon: <FaChalkboardTeacher />,
-    title: "Dynamic, Interactive Sessions",
-    description: "Engage in deep discussions, see real-world examples, and get your hands dirty with guided project implementation in every session."
+    title: "Live, Hands-On Sessions",
+    description: "Each week includes quick lessons and a live workshop where we build in front of you — and help you build your own project."
   },
   {
     icon: <FaUsers />,
-    title: "Elite Mentor Support",
-    description: "Receive dedicated, personalized feedback and guidance from your instructor to overcome challenges and accelerate your growth."
+    title: "1:1 Mentor Calls",
+    description: "You will get a 1:1 call with a mentor every week to get personalized feedback, guidance, and support on your projects."
   },
   {
     icon: <FaGamepad />,
-    title: "Gamified Ascendance",
-    description: "Thrive in a competitive yet supportive environment with weekly leaderboards and interactive quizzes that celebrate top performers."
+    title: "Leaderboard",
+    description: "Each week we will rank students based on the project quality and real metrics, don't worry we will keep things fun."
   },
   {
     icon: <FaTrophy />,
-    title: "Capstone Presentation",
-    description: "Culminate your journey by building and presenting a final capstone project that showcases your newfound expertise."
-  },
-  {
-    icon: <FaCertificate />,
-    title: "Official Certification",
-    description: "Graduate with an official Young Devs certificate, a powerful testament to your skills and dedication."
+    title: "Final Launch Project",
+    description: "In the last 2 weeks, you’ll build your biggest project yet with a team — and launch it publicly (will help you to make an impact,too)."
   }
 ];
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -64,7 +65,7 @@ export const ProgramFeatures = () => {
         transition={{ duration: 0.8 }}
         className="text-4xl sm:text-5xl font-bold font-display text-center mb-24 tracking-wide"
       >
-        The Blueprint for Brilliance
+       How It Works
       </motion.h2>
       <motion.div 
         variants={containerVariants}

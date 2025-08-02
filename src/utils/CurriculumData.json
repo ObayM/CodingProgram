@@ -1,42 +1,42 @@
 {
   "tracks": [
     {
-      "id": "web-dev-foundations",
-      "name": "Web Dev Foundations",
-      "description": "Master the core technologies of the web, from basic HTML structure to advanced JavaScript logic. This track is the perfect starting point for your development journey.",
+      "id": "web-dev",
+      "name": "Web Dev",
+      "description": "Build and ship working full stack tools using modern web technologies like React, Express, and Supabase.",
       "modules": [
-        { "id": 1, "title": "Code & Concepts", "project": "Mini Calculator", "icon": "FaRocket", "description": "Lay the foundation. Learn essential syntax, variables, functions, and the core principles of programming logic." },
-        { "id": 2, "title": "Logic & Loops", "project": "Guess the Number", "icon": "FaLightbulb", "description": "Master control flow. Dive deep into conditional statements, loops, and building interactive, logic-driven applications." },
-        { "id": 3, "title": "Structure & Data", "project": "Expense Tracker", "icon": "FaProjectDiagram", "description": "Organize your code and information. Explore arrays, objects, and how to structure data for complex applications." },
-        { "id": 4, "title": "Bugs & Breakthroughs", "project": "Fix the Game", "icon": "FaTools", "description": "Embrace the debugging process. Learn powerful techniques to find, diagnose, and fix bugs, turning frustration into triumph." },
-        { "id": 5, "title": "APIs & Asynchronicity", "project": "Weather App", "icon": "FaCloudSun", "description": "Connect to the world. Understand asynchronous JavaScript and fetch data from third-party APIs to build dynamic apps." },
-        { "id": 6, "title": "Capstone & Celebration", "project": "Final Portfolio", "icon": "FaTrophy", "description": "Bring it all together. Plan, build, and deploy a complete final project of your own design, showcasing your new skills." }
+        { "id": 1, "week": "Week 1", "title": "Fast Recap", "project": "Ship a public portfolio or landing page", "icon": "FaRocket", "description": "Recap HTML, CSS, and JS basics. Learn to structure content and styles to build and deploy a professional static website that introduces you or an idea." },
+        { "id": 2, "week": "Week 2", "title": "React & Interactive UI", "project": "Build a client-side tool", "icon": "FaReact", "description": "Master React components, props, and state. Solve a problem by building a dynamic, single-page tool like a custom dashboard, timer, or note app." },
+        { "id": 3, "week": "Week 3", "title": "Express.js & APIs", "project": "Design and build a REST API", "icon": "FaServer", "description": "Understand the backend. Use Express.js to create routes and middleware, building an API that returns useful data for any frontend application." },
+        { "id": 4, "week": "Week 4", "title": "Databases & Authentication", "project": "Create a full stack CRUD app", "icon": "FaDatabase", "description": "Manage data and users. Integrate Supabase to add a database and user authentication, building an app that can create, read, update, and delete data." },
+        { "id": 5, "week": "Week 5", "title": "Full Stack Integration", "project": "Deploy your best tool yet", "icon": "FaCloudUploadAlt", "description": "Connect the frontend and backend to build a polished, fully-functional web application. Focus on a great user experience and deploy it publicly." },
+        { "id": 6, "week": "Weeks 6-7", "title": "Final Project Launch", "project": "Ship a full, real-world product", "icon": "FaTrophy", "description": "Work in a team to build a complete product that solves a real problem. Prepare for a public launch on platforms like Product Hunt or DevPost." }
       ]
     },
     {
-      "id": "react-mastery",
-      "name": "React Mastery",
-      "description": "Go from zero to hero with the world's most popular UI library. Learn to build fast, component-based, and scalable single-page applications.",
+      "id": "coding-fundamentals",
+      "name": "Coding Fundamentals",
+      "description": "Ship open source tools, CLI apps, bots, and backend services that developers and users will love.",
       "modules": [
-        { "id": 1, "title": "Intro to React", "project": "Component Playground", "icon": "FaReact", "description": "Discover the React paradigm. Learn about JSX, components, and how to set up your first React application." },
-        { "id": 2, "title": "State & Props", "project": "Interactive Profile Card", "icon": "FaCogs", "description": "Manage data within your application. Master the concepts of state and props to create dynamic and interactive components." },
-        { "id": 3, "title": "Hooks & Lifecycle", "project": "Todo List App", "icon": "FaPaperclip", "description": "Unlock the power of functional components. Dive deep into essential hooks like useState, useEffect, and useContext." },
-        { "id": 4, "title": "Routing & Navigation", "project": "Multi-Page Blog", "icon": "FaRoute", "description": "Build single-page applications that feel like multi-page websites using React Router." },
-        { "id": 5, "title": "State Management", "project": "E-commerce Cart", "icon": "FaStore", "description": "Tackle complex state challenges with libraries like Redux Toolkit or Zustand for predictable and scalable state." },
-        { "id": 6, "title": "Advanced React", "project": "Dashboard with Charts", "icon": "FaChartBar", "description": "Explore advanced patterns, performance optimization, and testing strategies to become a true React professional." }
+        { "id": 1, "week": "Week 1", "title": "Scripting & CLI Tools", "project": "Build a simple command-line tool", "icon": "FaTools", "description": "Go beyond basic scripts. Build a useful command-line tool that solves a problem for you or other developers, like a file organizer or code generator." },
+        { "id": 2, "week": "Week 2", "title": "APIs & HTTP Requests", "project": "Create a bot or automation", "icon": "FaCogs", "description": "Connect your code to the world. Use an external API to build a bot for a platform like Discord or a script that automates a repetitive task." },
+        { "id": 3, "week": "Week 3", "title": "Web Scraping & File Ops", "project": "Build a data collection script", "icon": "FaProjectDiagram", "description": "Extract valuable information from the web. Write a robust script that scrapes a website, collects the data, and organizes it into a useful format like CSV or JSON." },
+        { "id": 4, "week": "Week 4", "title": "Backend Services with Flask/FastAPI", "project": "Create a microservice or personal API", "icon": "FaPlug", "description": "Build lightweight backends. Use a Python framework to create your own API that can power a website, serve data, or run a specific task." },
+        { "id": 5, "week": "Week 5", "title": "Packaging & Open Source", "project": "Publish a developer tool or library", "icon": "FaCloudUploadAlt", "description": "Contribute to the community. Package one of your tools for easy distribution and publish it as an open-source project on GitHub with a high-quality README." },
+        { "id": 6, "week": "Weeks 6-7", "title": "Final Project Launch", "project": "Ship a useful tool with a public repo", "icon": "FaTrophy", "description": "Create a high-impact developer tool or automation. Focus on usefulness, code quality, and clear documentation for a public GitHub launch." }
       ]
     },
     {
-      "id": "backend-essentials",
-      "name": "Backend Essentials",
-      "description": "Build the engine that powers modern applications. Learn to create robust servers, manage databases, and build secure APIs with Node.js and Express.",
+      "id": "data-science",
+      "name": "Data Science",
+      "description": "Go beyond the numbers. Analyze real-world data, uncover meaningful insights, and tell compelling stories with visualizations.",
       "modules": [
-        { "id": 1, "title": "Node.js & Express", "project": "Simple API Server", "icon": "FaServer", "description": "Start your backend journey. Learn the fundamentals of Node.js and create your first web server with Express." },
-        { "id": 2, "title": "Databases 101", "project": "User Management System", "icon": "FaDatabase", "description": "Learn how to store and retrieve data. Get hands-on with a NoSQL database like MongoDB." },
-        { "id": 3, "title": "RESTful APIs", "project": "Book Directory API", "icon": "FaPlug", "description": "Design and build clean, well-structured RESTful APIs that other applications can consume." },
-        { "id": 4, "title": "Authentication & Security", "project": "Secure Login System", "icon": "FaUserShield", "description": "Protect your application and users. Implement JWT-based authentication and learn security best practices." },
-        { "id": 5, "title": "Testing Your Backend", "project": "API Test Suite", "icon": "FaVial", "description": "Ensure your code is reliable and bug-free by writing unit and integration tests for your API endpoints." },
-        { "id": 6, "title": "Deployment & DevOps", "project": "Deploy Your API", "icon": "FaCloudUploadAlt", "description": "Take your application live! Learn how to deploy your backend to a cloud service like Vercel or Heroku." }
+        { "id": 1, "week": "Week 1", "title": "Jupyter & Basic EDA", "project": "Perform an exploratory data analysis", "icon": "FaLightbulb", "description": "Learn the tools of the trade. Use Python and Jupyter Notebooks to conduct a basic exploratory data analysis (EDA) on a provided dataset to find initial patterns." },
+        { "id": 2, "week": "Week 2", "title": "Pandas & NumPy", "project": "Publish a data analysis report", "icon": "FaVial", "description": "Master data manipulation. Use pandas and numpy to clean, transform, and analyze a real dataset, then present your findings in a public notebook." },
+        { "id": 3, "week": "Week 3", "title": "Data Visualization", "project": "Create a visual data story", "icon": "FaChartBar", "description": "Tell a story with data. Use libraries like Matplotlib or Plotly to create compelling charts and graphs that make a complex topic easy to understand." },
+        { "id": 4, "week": "Week 4", "title": "Real-World Datasets", "project": "Produce a cleaned dataset & insight report", "icon": "FaTools", "description": "Tackle messy data. Source a dataset from Kaggle or an API, perform a rigorous cleaning process, and publish both the clean data and an insights report." },
+        { "id": 5, "week": "Week 5", "title": "Streamlit & Dashboards", "project": "Build an interactive data dashboard", "icon": "FaStore", "description": "Bring your analysis to life. Use Streamlit to turn your data notebook into an interactive web app or dashboard that users can explore." },
+        { "id": 6, "week": "Weeks 6-7", "title": "Final Project Launch", "project": "Publish a final Kaggle notebook or Streamlit app", "icon": "FaTrophy", "description": "Solve a real problem with data. Conduct a comprehensive analysis to uncover a meaningful insight and publish your work for the community to see and use." }
       ]
     }
   ]
