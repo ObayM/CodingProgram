@@ -134,18 +134,7 @@ const AnimatedSubtitle = ({ text }) => {
 };
 
 
-const IconListItem = ({ children }) => (
-    <motion.li 
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.5 }}
-        className="flex items-start gap-3"
-    >
-        <FaCheckCircle className="text-primary mt-1 flex-shrink-0" />
-        <span>{children}</span>
-    </motion.li>
-);
+
 
 export default function HomePage() {
     useSmoothScroll();

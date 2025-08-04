@@ -115,7 +115,8 @@ const Navbar = () => {
                   whileTap={{ scale: 0.95 }}
                   className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold px-5 py-2 rounded-full transition-shadow duration-300"
                 >
-                  <NLink href="/apply">Apply Now</NLink>
+                  {/* it will go to the fillout form until we implment ours */}
+                  <a href="https://tweakly.fillout.com/t/svLpRA67hsus" target="_blank">Apply Now</a>
                 </motion.button>
               </div>
 
